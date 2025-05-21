@@ -42,7 +42,7 @@ def choose_ship():
     choosing = True
     selected = 0
     ships = [ship1_img, ship2_img, ship3_img]
-    ship_descriptions = ["Szybki statek, niska wytrzymałość", "Powolny statek, wysoka wytrzymałość", "Średnia prędkość i wytrzymałość"]
+    ship_descriptions = ["Szybki statek, niska wytrzymałość", "Powolny statek, wysoka wytrzymałość", "Średnia prędkość, za pomocą lewego alta możliwa teleportacja na bliską odległość"]
 
     while choosing:
         screen.fill(BLACK)
@@ -539,15 +539,15 @@ while running:
         points = 50 - hit.radius
         SCORE += points
         points_for_new_live += points
-        if points_for_new_live >= 5000:
+        if points_for_new_live >= 20000:
             LIVES += 1
-            points_for_new_live -= 5000
+            points_for_new_live -= 20000
 
         expl = Explosion(hit.rect.center, 'lg')
         all_sprites.add(expl)
         newmob()
 
-        if random.random() < 0.10:
+        if random.random() < 0.05:
             powerup = PowerUp(hit.rect.center)
             all_sprites.add(powerup)
             powerups.add(powerup)
